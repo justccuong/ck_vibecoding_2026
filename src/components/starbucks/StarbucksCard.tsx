@@ -126,8 +126,9 @@ export const StarbucksCard: React.FC<StarbucksCardProps> = ({
             </span>
           </div>
           <div>
-            <span className="text-[11px] font-medium text-slate-500 block">
-              {getGreeting()} ☕
+            <span className="text-[11px] font-medium text-slate-500 flex items-center gap-1">
+              <span>{getGreeting()}</span>
+              <Coffee className="w-3 h-3 text-slate-400" />
             </span>
             <h2 className="text-base font-extrabold text-[#1E3932] tracking-tight">
               {member.name}

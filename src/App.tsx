@@ -230,92 +230,148 @@ export function App() {
 
         {/* ========================================================================= */}
         {/* VIEW MODE 1: ĐẦU 1 - APP THÀNH VIÊN (CUSTOMER APP) */}
+        {/* Khi màn ngang / Desktop: Thẻ bên trái, Cột đổi ưu đãi đồ uống bên phải */}
+        {/* Khi sang điện thoại (Phone): Tự động chuyển thành 1 cột dọc mượt mà */}
         {/* ========================================================================= */}
         {activeHead === 'customer' && (
-          <div className="max-w-md mx-auto space-y-3.5">
-            <div className="bg-white rounded-[32px] p-4 sm:p-5 border border-slate-200/80 shadow-md space-y-4">
-              {/* Thẻ thành viên số */}
-              <StarbucksCard
-                member={currentMember}
-                onOpenQrEnlarge={() => setIsScannerOpen(true)}
-                onOpenRules={() => setIsRulesOpen(true)}
-              />
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
+            {/* CỘT TRÁI (DESKTOP): THẺ THÀNH VIÊN + BANNER ĐỒ UỐNG + TIỆN ÍCH NHANH */}
+            <div className="lg:col-span-5 space-y-4">
+              <div className="bg-white rounded-3xl p-4 sm:p-5 border border-slate-200/80 shadow-md space-y-4">
+                {/* Thẻ thành viên số thời gian thực */}
+                <StarbucksCard
+                  member={currentMember}
+                  onOpenQrEnlarge={() => setIsScannerOpen(true)}
+                  onOpenRules={() => setIsRulesOpen(true)}
+                />
 
-              {/* Seasonal Drinks Banner */}
-              <div
-                onClick={() => setIsDrinksModalOpen(true)}
-                className="bg-gradient-to-r from-[#006241] to-[#1E3932] rounded-2xl p-3 text-white flex items-center justify-between cursor-pointer hover:shadow-lg transition-all group relative overflow-hidden"
-              >
-                <div className="relative z-10 flex items-center gap-2.5">
-                  <img
-                    src="/assets/images/products/frappuccino.png"
-                    alt="Frappuccino"
-                    className="w-10 h-10 object-contain drop-shadow-md group-hover:scale-110 transition-transform"
-                  />
-                  <div>
-                    <span className="text-[10px] font-black text-[#7EC518] uppercase tracking-wider block">
-                      Đặc quyền tích sao Stars
-                    </span>
-                    <strong className="text-xs font-black text-white block">
-                      Khám phá Menu Đồ Uống Vibe &rarr;
+                {/* Seasonal Drinks Banner */}
+                <div
+                  onClick={() => setIsDrinksModalOpen(true)}
+                  className="bg-gradient-to-r from-[#006241] to-[#1E3932] rounded-2xl p-3 text-white flex items-center justify-between cursor-pointer hover:shadow-lg transition-all group relative overflow-hidden active:scale-[0.99]"
+                >
+                  <div className="relative z-10 flex items-center gap-2.5">
+                    <img
+                      src="/assets/images/products/frappuccino.png"
+                      alt="Frappuccino"
+                      className="w-10 h-10 object-contain drop-shadow-md group-hover:scale-110 transition-transform"
+                    />
+                    <div>
+                      <span className="text-[10px] font-black text-[#7EC518] uppercase tracking-wider block">
+                        Đặc quyền tích sao Stars
+                      </span>
+                      <strong className="text-xs font-black text-white block">
+                        Khám phá Menu Đồ Uống Vibe &rarr;
+                      </strong>
+                    </div>
+                  </div>
+                  <div className="relative z-10 bg-white/20 hover:bg-white/30 px-2.5 py-1 rounded-xl text-[10px] font-bold transition-colors">
+                    Xem ngay
+                  </div>
+                </div>
+
+                {/* Thống kê nhanh của thành viên */}
+                <div className="grid grid-cols-3 gap-2 text-center text-xs pt-1">
+                  <div className="bg-[#F1F8F5] p-2.5 rounded-2xl border border-[#D4E9E2]">
+                    <span className="text-[10px] text-slate-500 block font-medium">Hạng hiện tại</span>
+                    <strong className="text-xs font-black text-[#1E3932] mt-0.5 block">{currentMember.tier}</strong>
+                  </div>
+                  <div className="bg-[#F1F8F5] p-2.5 rounded-2xl border border-[#D4E9E2]">
+                    <span className="text-[10px] text-slate-500 block font-medium">Số dư Stars</span>
+                    <strong className="text-xs font-black text-[#006241] mt-0.5 block">
+                      {currentMember.points.toLocaleString()}
+                    </strong>
+                  </div>
+                  <div className="bg-[#F1F8F5] p-2.5 rounded-2xl border border-[#D4E9E2]">
+                    <span className="text-[10px] text-slate-500 block font-medium">Voucher trong ví</span>
+                    <strong className="text-xs font-black text-amber-600 mt-0.5 block">
+                      {vouchers.filter((v) => v.memberId === currentMemberId).length}
                     </strong>
                   </div>
                 </div>
-                <div className="relative z-10 bg-white/20 px-2.5 py-1 rounded-xl text-[10px] font-bold">
-                  Xem ngay
-                </div>
-              </div>
 
-              {/* Sub-tab navigation in Member view (DEFAULT: 'rewards') */}
-              <div className="flex p-1 bg-[#F7F5F0] rounded-xl text-xs font-bold border border-slate-200">
+                {/* Nút chuyển đổi nhanh sang Đầu 2: Quầy POS */}
+                <button
+                  onClick={() => setActiveHead('cashier')}
+                  className="w-full flex items-center justify-between p-2.5 rounded-2xl bg-[#F7F5F0] hover:bg-[#eae6dd] border border-slate-200 text-slate-700 text-xs font-bold transition-all active:scale-98"
+                >
+                  <div className="flex items-center gap-2">
+                    <CreditCard className="w-4 h-4 text-[#006241]" />
+                    <span>Chuyển sang Quầy POS thu ngân</span>
+                  </div>
+                  <ChevronRight className="w-4 h-4 text-slate-400" />
+                </button>
+              </div>
+            </div>
+
+            {/* CỘT PHẢI (DESKTOP): ĐỔI ƯU ĐÃI ĐỒ UỐNG & VÍ VOUCHER / LỊCH SỬ BIẾN ĐỘNG ĐIỂM */}
+            <div className="lg:col-span-7 space-y-3.5">
+              {/* Thanh chọn phân hệ (Đổi ưu đãi / Lịch sử điểm / Tiện ích) */}
+              <div className="bg-white p-1.5 rounded-2xl border border-slate-200/80 shadow-2xs flex gap-1 text-xs font-bold">
                 <button
                   onClick={() => setActiveTab('rewards')}
-                  className={`flex-1 py-1.5 rounded-lg transition-all ${
-                    activeTab === 'rewards' ? 'bg-[#006241] text-white shadow-xs' : 'text-slate-600'
+                  className={`flex-1 py-2 px-3 rounded-xl transition-all flex items-center justify-center gap-1.5 ${
+                    activeTab === 'rewards'
+                      ? 'bg-[#006241] text-white shadow-xs'
+                      : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
                   }`}
                 >
-                  Đổi ưu đãi ({vouchers.filter((v) => v.memberId === currentMemberId).length})
+                  <Gift className="w-3.5 h-3.5" />
+                  <span>Đổi ưu đãi ({vouchers.filter((v) => v.memberId === currentMemberId).length})</span>
                 </button>
                 <button
                   onClick={() => setActiveTab('history')}
-                  className={`flex-1 py-1.5 rounded-lg transition-all ${
-                    activeTab === 'history' ? 'bg-[#006241] text-white shadow-xs' : 'text-slate-600'
+                  className={`flex-1 py-2 px-3 rounded-xl transition-all flex items-center justify-center gap-1.5 ${
+                    activeTab === 'history'
+                      ? 'bg-[#006241] text-white shadow-xs'
+                      : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
                   }`}
                 >
-                  Lịch sử điểm
+                  <History className="w-3.5 h-3.5" />
+                  <span>Lịch sử điểm</span>
                 </button>
                 <button
                   onClick={() => setActiveTab('card')}
-                  className={`flex-1 py-1.5 rounded-lg transition-all ${
-                    activeTab === 'card' ? 'bg-[#006241] text-white shadow-xs' : 'text-slate-600'
+                  className={`flex-1 py-2 px-3 rounded-xl transition-all flex items-center justify-center gap-1.5 ${
+                    activeTab === 'card'
+                      ? 'bg-[#006241] text-white shadow-xs'
+                      : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
                   }`}
                 >
-                  Tiện ích
+                  <Layers className="w-3.5 h-3.5" />
+                  <span>Tổng quan</span>
                 </button>
               </div>
 
-              {/* Sub-tab Views */}
+              {/* Nội dung tương ứng */}
               {activeTab === 'rewards' && <RewardRedeem />}
               {activeTab === 'history' && <PointHistoryView />}
               {activeTab === 'card' && (
-                <div className="space-y-3">
-                  <div className="grid grid-cols-3 gap-2 text-center text-xs">
-                    <div className="bg-[#F1F8F5] p-2.5 rounded-2xl border border-[#D4E9E2]">
-                      <span className="text-[10px] text-slate-500 block font-medium">Tổng thành viên</span>
-                      <strong className="text-sm font-black text-[#1E3932] mt-0.5 block">{members.length}</strong>
+                <div className="bg-white rounded-3xl p-5 border border-slate-200/80 shadow-xs space-y-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-center text-xs">
+                    <div className="bg-[#F1F8F5] p-4 rounded-2xl border border-[#D4E9E2]">
+                      <span className="text-[11px] text-slate-500 block font-medium">Tổng thành viên</span>
+                      <strong className="text-xl font-black text-[#1E3932] mt-1 block">{members.length}</strong>
                     </div>
-                    <div className="bg-[#F1F8F5] p-2.5 rounded-2xl border border-[#D4E9E2]">
-                      <span className="text-[10px] text-slate-500 block font-medium">Tổng Stars đã phát</span>
-                      <strong className="text-sm font-black text-[#006241] mt-0.5 block">
+                    <div className="bg-[#F1F8F5] p-4 rounded-2xl border border-[#D4E9E2]">
+                      <span className="text-[11px] text-slate-500 block font-medium">Tổng Stars đã phát</span>
+                      <strong className="text-xl font-black text-[#006241] mt-1 block">
                         {members.reduce((sum, m) => sum + m.points, 0).toLocaleString()}
                       </strong>
                     </div>
-                    <div className="bg-[#F1F8F5] p-2.5 rounded-2xl border border-[#D4E9E2]">
-                      <span className="text-[10px] text-slate-500 block font-medium">Voucher trong ví</span>
-                      <strong className="text-sm font-black text-amber-600 mt-0.5 block">
-                        {vouchers.filter((v) => v.memberId === currentMemberId).length}
+                    <div className="bg-[#F1F8F5] p-4 rounded-2xl border border-[#D4E9E2]">
+                      <span className="text-[11px] text-slate-500 block font-medium">Tổng giao dịch POS</span>
+                      <strong className="text-xl font-black text-amber-600 mt-1 block">
+                        {transactions.length}
                       </strong>
                     </div>
+                  </div>
+
+                  <div className="bg-[#F7F5F0] p-4 rounded-2xl border border-slate-200 text-xs text-slate-600 space-y-2">
+                    <strong className="text-slate-900 block font-bold">Thông tin hệ thống Vibe Rewards:</strong>
+                    <p>• <strong>Mô hình 2 đầu:</strong> Chuyển vai tức thì giữa App Thành Viên (Đầu 1) và Quầy Thu Ngân POS (Đầu 2).</p>
+                    <p>• <strong>Chống cộng trùng:</strong> Mỗi mã giao dịch TX-KT-XXX chỉ được cộng điểm duy nhất 01 lần, nhập lại hệ thống từ chối.</p>
+                    <p>• <strong>Bố cục thích ứng (Responsive):</strong> Khi màn hình ngang / desktop, Thẻ thành viên nằm cột trái, Đổi ưu đãi & đồ uống nằm cột phải; trên điện thoại tự động xếp dọc thuận tiện thao tác một tay.</p>
                   </div>
                 </div>
               )}
@@ -327,12 +383,34 @@ export function App() {
         {/* VIEW MODE 2: ĐẦU 2 - QUẦY THU NGÂN (CASHIER POS) */}
         {/* ========================================================================= */}
         {activeHead === 'cashier' && (
-          <div className="max-w-2xl mx-auto space-y-4">
-            {/* POS Cashier Box */}
-            <CashierPOS onOpenScanner={() => setIsScannerOpen(true)} />
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
+            {/* CỘT TRÁI: BẢNG ĐIỀU KHIỂN QUẦY THU NGÂN */}
+            <div className="lg:col-span-6 space-y-4">
+              <CashierPOS onOpenScanner={() => setIsScannerOpen(true)} />
+            </div>
 
-            {/* Live Point History for cashier reference */}
-            <PointHistoryView />
+            {/* CỘT PHẢI: XEM TRƯỚC THẺ THÀNH VIÊN REAL-TIME & LỊCH SỬ BIẾN ĐỘNG */}
+            <div className="lg:col-span-6 space-y-4">
+              <div className="bg-white rounded-3xl p-4 sm:p-5 border border-slate-200/80 shadow-md space-y-3">
+                <div className="flex items-center justify-between pb-2 border-b border-slate-100">
+                  <div className="flex items-center gap-2">
+                    <BrandLogo size={24} />
+                    <span className="text-xs font-black text-slate-800">Thẻ Thành Viên Được Chọn</span>
+                  </div>
+                  <span className="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">
+                    Cập nhật thời gian thực
+                  </span>
+                </div>
+                <StarbucksCard
+                  member={currentMember}
+                  onOpenQrEnlarge={() => setIsScannerOpen(true)}
+                  onOpenRules={() => setIsRulesOpen(true)}
+                />
+              </div>
+
+              {/* Lịch sử điểm & biến động quầy */}
+              <PointHistoryView />
+            </div>
           </div>
         )}
       </main>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useStarbucksStore } from '../../store/useStarbucksStore';
 import { BTC_TEST_CASES, TestCase } from '../../data/btcSampleData';
-import { X, Play, CheckCircle2, ShieldCheck, ArrowRight, Sparkles } from 'lucide-react';
+import { X, Play, CheckCircle2, ShieldCheck, ArrowRight, Sparkles, Target } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
 interface BtcTestRunnerModalProps {
@@ -120,8 +120,9 @@ export const BtcTestRunnerModal: React.FC<BtcTestRunnerModalProps> = ({
                 <div className="text-[10px] text-slate-500">
                   Đầu vào: {tc.input}
                 </div>
-                <div className="text-[10px] text-emerald-800 font-medium bg-white p-1.5 rounded-lg border border-slate-100">
-                  🎯 Kết quả mong đợi: <strong>{tc.expected}</strong>
+                <div className="text-[10px] text-emerald-800 font-medium bg-white p-1.5 rounded-lg border border-slate-100 flex items-center gap-1">
+                  <Target className="w-3 h-3 text-emerald-600 shrink-0" />
+                  <span>Kết quả mong đợi: <strong>{tc.expected}</strong></span>
                 </div>
               </div>
             </div>

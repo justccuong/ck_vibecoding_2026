@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useStarbucksStore } from '../../store/useStarbucksStore';
-import { X, Sparkles, Award } from 'lucide-react';
+import { X, Sparkles, Award, Crown, Shield } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
 export const TierUpgradeModal: React.FC = () => {
@@ -30,8 +30,12 @@ export const TierUpgradeModal: React.FC = () => {
           <X className="w-4 h-4" />
         </button>
 
-        <div className="w-16 h-16 rounded-full bg-gradient-to-tr from-amber-400 to-yellow-300 mx-auto flex items-center justify-center shadow-lg shadow-amber-500/30 text-3xl animate-bounce">
-          {upgradedTier === 'Vàng' ? '👑' : '🥈'}
+        <div className="w-16 h-16 rounded-full bg-gradient-to-tr from-amber-400 to-yellow-300 mx-auto flex items-center justify-center shadow-lg shadow-amber-500/30 animate-bounce">
+          {upgradedTier === 'Vàng' ? (
+            <Crown className="w-8 h-8 text-amber-950" />
+          ) : (
+            <Shield className="w-8 h-8 text-slate-800" />
+          )}
         </div>
 
         <div>

@@ -127,7 +127,7 @@ export const RewardRedeem: React.FC = () => {
       {/* CATALOG VIEW: ALL / DRINKS / VOUCHERS */}
       {/* ========================================================================= */}
       {activeTab !== 'wallet' && (
-        <div className="space-y-3">
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-3">
           {filteredRewards.map((reward) => {
             const canAfford = currentMember.points >= reward.pointsRequired;
             const isDrink = reward.category === 'drink';
@@ -259,7 +259,7 @@ export const RewardRedeem: React.FC = () => {
       {/* WALLET VIEW: MY VOUCHERS WITH AUTHENTIC BARCODE RENDER */}
       {/* ========================================================================= */}
       {activeTab === 'wallet' && (
-        <div className="space-y-3">
+        <div>
           {userVouchers.length === 0 ? (
             <div className="text-center py-10 bg-[#F7F5F0] rounded-2xl border border-dashed border-slate-200 text-slate-400 text-xs space-y-2">
               <Ticket className="w-8 h-8 mx-auto text-slate-300" />
@@ -272,77 +272,79 @@ export const RewardRedeem: React.FC = () => {
               </button>
             </div>
           ) : (
-            userVouchers.map((v) => {
-              const isUnused = v.status === 'Chưa dùng';
-              return (
-                <div
-                  key={v.id}
-                  className={`p-4 rounded-3xl border transition-all relative overflow-hidden ${
-                    isUnused
-                      ? 'bg-[#F1F8F5] border-[#006241]/30 text-[#1E3932] shadow-sm'
-                      : 'bg-slate-50 border-slate-200 text-slate-400 opacity-60'
-                  }`}
-                >
-                  {/* Top Bar: Reward Name & Status */}
-                  <div className="flex items-center justify-between border-b border-black/5 pb-2.5">
-                    <div className="flex items-center gap-2">
-                      <div className="w-8 h-8 rounded-xl bg-white border border-[#D4E9E2] flex items-center justify-center text-xs shadow-2xs">
-                        <Ticket className="w-4 h-4 text-[#006241]" />
+            <div className="grid grid-cols-1 xl:grid-cols-2 gap-3.5">
+              {userVouchers.map((v) => {
+                const isUnused = v.status === 'Chưa dùng';
+                return (
+                  <div
+                    key={v.id}
+                    className={`p-4 rounded-3xl border transition-all relative overflow-hidden ${
+                      isUnused
+                        ? 'bg-[#F1F8F5] border-[#006241]/30 text-[#1E3932] shadow-sm'
+                        : 'bg-slate-50 border-slate-200 text-slate-400 opacity-60'
+                    }`}
+                  >
+                    {/* Top Bar: Reward Name & Status */}
+                    <div className="flex items-center justify-between border-b border-black/5 pb-2.5">
+                      <div className="flex items-center gap-2">
+                        <div className="w-8 h-8 rounded-xl bg-white border border-[#D4E9E2] flex items-center justify-center text-xs shadow-2xs">
+                          <Ticket className="w-4 h-4 text-[#006241]" />
+                        </div>
+                        <div>
+                          <strong className="text-xs font-black text-[#1E3932]">
+                            {v.rewardName}
+                          </strong>
+                          <span className="text-[10px] text-slate-500 block flex items-center gap-1 font-mono">
+                            <Clock className="w-3 h-3 text-slate-400" />
+                            <span>Đổi lúc: {v.redeemedAt}</span>
+                          </span>
+                        </div>
                       </div>
-                      <div>
-                        <strong className="text-xs font-black text-[#1E3932]">
-                          {v.rewardName}
-                        </strong>
-                        <span className="text-[10px] text-slate-500 block flex items-center gap-1 font-mono">
-                          <Clock className="w-3 h-3 text-slate-400" />
-                          <span>Đổi lúc: {v.redeemedAt}</span>
-                        </span>
-                      </div>
-                    </div>
 
-                    <span
-                      className={`text-[9px] font-black uppercase px-2.5 py-0.5 rounded-full border ${
-                        isUnused
-                          ? 'bg-[#D4E9E2] text-[#006241] border-[#006241]/20 font-bold'
-                          : 'bg-slate-200 text-slate-600 border-slate-300'
-                      }`}
-                    >
-                      {v.status}
-                    </span>
-                  </div>
-
-                  {/* Center: Real SVG Barcode */}
-                  <div className="my-3 bg-white p-3 rounded-2xl border border-slate-200/80 shadow-2xs text-center">
-                    <div className="flex items-center justify-center gap-1.5 text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-1">
-                      <ScanLine className="w-3 h-3 text-[#006241]" />
-                      <span>Mã vạch xuất trình tại quầy thu ngân</span>
-                    </div>
-                    <BarcodeView value={v.code} height={46} showText={true} />
-                  </div>
-
-                  {/* Bottom: Action / Usage State */}
-                  <div className="flex items-center justify-between text-xs pt-1">
-                    <span className="text-[10px] text-slate-500 font-medium">
-                      {isUnused ? 'Chưa quét đổi tại quầy' : 'Đã sử dụng phiếu'}
-                    </span>
-
-                    {isUnused ? (
-                      <button
-                        onClick={() => useVoucher(v.id)}
-                        className="px-4 py-2 bg-[#006241] hover:bg-[#00754A] text-white rounded-xl text-xs font-black shadow-sm shadow-[#006241]/20 transition-all active:scale-95 cursor-pointer flex items-center gap-1.5"
+                      <span
+                        className={`text-[9px] font-black uppercase px-2.5 py-0.5 rounded-full border ${
+                          isUnused
+                            ? 'bg-[#D4E9E2] text-[#006241] border-[#006241]/20 font-bold'
+                            : 'bg-slate-200 text-slate-600 border-slate-300'
+                        }`}
                       >
-                        <Check className="w-3.5 h-3.5" />
-                        <span>Dùng tại quầy</span>
-                      </button>
-                    ) : (
-                      <span className="text-[11px] text-slate-400 font-bold flex items-center gap-1">
-                        <Check className="w-3.5 h-3.5 text-emerald-600" /> Đã sử dụng
+                        {v.status}
                       </span>
-                    )}
+                    </div>
+
+                    {/* Center: Real SVG Barcode */}
+                    <div className="my-3 bg-white p-3 rounded-2xl border border-slate-200/80 shadow-2xs text-center">
+                      <div className="flex items-center justify-center gap-1.5 text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-1">
+                        <ScanLine className="w-3 h-3 text-[#006241]" />
+                        <span>Mã vạch xuất trình tại quầy thu ngân</span>
+                      </div>
+                      <BarcodeView value={v.code} height={46} showText={true} />
+                    </div>
+
+                    {/* Bottom: Action / Usage State */}
+                    <div className="flex items-center justify-between text-xs pt-1">
+                      <span className="text-[10px] text-slate-500 font-medium">
+                        {isUnused ? 'Chưa quét đổi tại quầy' : 'Đã sử dụng phiếu'}
+                      </span>
+
+                      {isUnused ? (
+                        <button
+                          onClick={() => useVoucher(v.id)}
+                          className="px-4 py-2 bg-[#006241] hover:bg-[#00754A] text-white rounded-xl text-xs font-black shadow-sm shadow-[#006241]/20 transition-all active:scale-95 cursor-pointer flex items-center gap-1.5"
+                        >
+                          <Check className="w-3.5 h-3.5" />
+                          <span>Dùng tại quầy</span>
+                        </button>
+                      ) : (
+                        <span className="text-[11px] text-slate-400 font-bold flex items-center gap-1">
+                          <Check className="w-3.5 h-3.5 text-emerald-600" /> Đã sử dụng
+                        </span>
+                      )}
+                    </div>
                   </div>
-                </div>
-              );
-            })
+                );
+              })}
+            </div>
           )}
         </div>
       )}

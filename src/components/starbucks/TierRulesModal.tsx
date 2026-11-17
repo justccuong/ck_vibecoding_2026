@@ -1,5 +1,5 @@
 import React from 'react';
-import { X, Award, Shield, CheckCircle2, Sparkles } from 'lucide-react';
+import { X, Award, Shield, Medal, Crown } from 'lucide-react';
 
 interface TierRulesModalProps {
   isOpen: boolean;
@@ -39,8 +39,8 @@ export const TierRulesModal: React.FC<TierRulesModalProps> = ({ isOpen, onClose 
         <div className="space-y-2 text-xs">
           {/* Hạng Đồng */}
           <div className="p-2.5 bg-gradient-to-r from-orange-50 to-amber-50 rounded-2xl border border-orange-200 flex items-start gap-2.5">
-            <div className="w-7 h-7 rounded-lg bg-orange-700 text-orange-100 flex items-center justify-center font-bold text-xs shrink-0">
-              🥉
+            <div className="w-7 h-7 rounded-lg bg-orange-700 text-orange-100 flex items-center justify-center font-bold text-xs shrink-0 shadow-2xs">
+              <Medal className="w-4 h-4 text-orange-100" />
             </div>
             <div>
               <strong className="text-orange-950 block">Hạng Đồng (Bronze Member)</strong>
@@ -51,8 +51,8 @@ export const TierRulesModal: React.FC<TierRulesModalProps> = ({ isOpen, onClose 
 
           {/* Hạng Bạc */}
           <div className="p-2.5 bg-gradient-to-r from-slate-100 to-slate-200 rounded-2xl border border-slate-300 flex items-start gap-2.5">
-            <div className="w-7 h-7 rounded-lg bg-slate-500 text-white flex items-center justify-center font-bold text-xs shrink-0">
-              🥈
+            <div className="w-7 h-7 rounded-lg bg-slate-500 text-white flex items-center justify-center font-bold text-xs shrink-0 shadow-2xs">
+              <Shield className="w-4 h-4 text-slate-100" />
             </div>
             <div>
               <strong className="text-slate-900 block">Hạng Bạc (Silver Member)</strong>
@@ -63,8 +63,8 @@ export const TierRulesModal: React.FC<TierRulesModalProps> = ({ isOpen, onClose 
 
           {/* Hạng Vàng */}
           <div className="p-2.5 bg-gradient-to-r from-yellow-100 via-amber-100 to-yellow-200 rounded-2xl border border-amber-300 flex items-start gap-2.5">
-            <div className="w-7 h-7 rounded-lg bg-amber-500 text-amber-950 flex items-center justify-center font-bold text-xs shrink-0">
-              👑
+            <div className="w-7 h-7 rounded-lg bg-amber-500 text-amber-950 flex items-center justify-center font-bold text-xs shrink-0 shadow-2xs">
+              <Crown className="w-4 h-4 text-amber-950" />
             </div>
             <div>
               <strong className="text-amber-950 block">Hạng Vàng (Gold VIP Member)</strong>
