@@ -1,0 +1,511 @@
+{
+  "Huong dan": [
+    {
+      "BỘ DỮ LIỆU MẪU VIBE CODING – BẢNG A CÔNG NGHỆ": "Mục",
+      "col_1": "Hướng dẫn"
+    },
+    {
+      "BỘ DỮ LIỆU MẪU VIBE CODING – BẢNG A CÔNG NGHỆ": "Mục đích",
+      "col_1": "Bộ dữ liệu giả lập do Ban tổ chức cung cấp cho tất cả đội. Dùng để nạp vào sản phẩm, chạy thử các luồng và giúp giám khảo kiểm tra thống nhất."
+    },
+    {
+      "BỘ DỮ LIỆU MẪU VIBE CODING – BẢNG A CÔNG NGHỆ": "Phát dữ liệu cho đội",
+      "col_1": "Sử dụng các sheet trong tệp này để nạp dữ liệu mẫu cho Bảng A – Công Nghệ."
+    },
+    {
+      "BỘ DỮ LIỆU MẪU VIBE CODING – BẢNG A CÔNG NGHỆ": "Thông tin cá nhân",
+      "col_1": "Tên, số điện thoại và dữ liệu khách hàng đều là dữ liệu hư cấu để thi; không thuộc về người dùng thật."
+    },
+    {
+      "BỘ DỮ LIỆU MẪU VIBE CODING – BẢNG A CÔNG NGHỆ": "Bảng Kỹ thuật",
+      "col_1": "Dùng các sheet KT_ThanhVien, KT_GiaoDich, KT_UuDai, KT_LichSuDiem, KT_CaKiemTra và KT_MaQR. Hạng tham khảo: Đồng dưới 1.000 điểm, Bạc từ 1.000 đến 4.999, Vàng từ 5.000 trở lên; đội tự công bố ngưỡng. Điểm hiện tại đã tính đến giao dịch mẫu, không cộng lại khi nạp."
+    },
+    {
+      "BỘ DỮ LIỆU MẪU VIBE CODING – BẢNG A CÔNG NGHỆ": "Dữ liệu mẫu và quy tắc chấm",
+      "col_1": "Các ngưỡng hạng, mức ưu đãi và giả định kinh doanh trong file chỉ là bộ ví dụ để khởi tạo. Đội vẫn công bố rõ các quy tắc và công thức mà mình chọn theo đề."
+    },
+    {
+      "BỘ DỮ LIỆU MẪU VIBE CODING – BẢNG A CÔNG NGHỆ": "Nút nạp dữ liệu",
+      "col_1": "Đề yêu cầu mỗi ứng dụng có nút Nạp dữ liệu mẫu. Đội tích hợp các bản ghi trong file này vào ứng dụng; không cần xây công cụ nhập Excel tổng quát."
+    },
+    {
+      "BỘ DỮ LIỆU MẪU VIBE CODING – BẢNG A CÔNG NGHỆ": "Kịch bản kiểm tra",
+      "col_1": "KT_MaQR chứa ảnh QR chuẩn cho từng mã thành viên. Payload của QR luôn đúng bằng MaThanhVien. Giám khảo dùng cùng QR KT-004 cho mọi đội; chỉ tính phần quét trong điểm thưởng QR."
+    },
+    {
+      "BỘ DỮ LIỆU MẪU VIBE CODING – BẢNG A CÔNG NGHỆ": "Nguồn dữ liệu",
+      "col_1": "Ban tổ chức cuộc thi Vibe Coding Mini App. Dữ liệu được tạo riêng cho mục đích mô phỏng và chấm thi."
+    }
+  ],
+  "KT_ThanhVien": [
+    {
+      "Bảng Kỹ thuật | Thành viên": "Điểm hiện tại đã bao gồm các giao dịch mẫu trong KT_GiaoDich. Cột điểm đầu kỳ chỉ dùng để đối chiếu dữ liệu mẫu.",
+      "col_1": null,
+      "col_2": null,
+      "col_3": null,
+      "col_4": null,
+      "col_5": null,
+      "col_6": null,
+      "col_7": null,
+      "col_8": null
+    },
+    {
+      "Bảng Kỹ thuật | Thành viên": "MaThanhVien",
+      "col_1": "HoTen_Mau",
+      "col_2": "DienThoai_GiaLap",
+      "col_3": "DiemDauKy",
+      "col_4": "DiemHienTai",
+      "col_5": "HangMauThamKhao",
+      "col_6": "TrangThai",
+      "col_7": "NgayThamGia",
+      "col_8": "MaQR_Payload"
+    },
+    {
+      "Bảng Kỹ thuật | Thành viên": "KT-001",
+      "col_1": "An Nguyễn",
+      "col_2": "0900001001",
+      "col_3": 200,
+      "col_4": 250,
+      "col_5": "Đồng",
+      "col_6": "Đang hoạt động",
+      "col_7": "2026-09-05",
+      "col_8": "KT-001"
+    },
+    {
+      "Bảng Kỹ thuật | Thành viên": "KT-002",
+      "col_1": "Bình Trần",
+      "col_2": "0900001002",
+      "col_3": 1300,
+      "col_4": 1450,
+      "col_5": "Bạc",
+      "col_6": "Đang hoạt động",
+      "col_7": "2026-08-17",
+      "col_8": "KT-002"
+    },
+    {
+      "Bảng Kỹ thuật | Thành viên": "KT-003",
+      "col_1": "Chi Lê",
+      "col_2": "0900001003",
+      "col_3": 1000,
+      "col_4": 800,
+      "col_5": "Đồng",
+      "col_6": "Đang hoạt động",
+      "col_7": "2026-07-22",
+      "col_8": "KT-003"
+    },
+    {
+      "Bảng Kỹ thuật | Thành viên": "KT-004",
+      "col_1": "Dũng Phạm",
+      "col_2": "0900001004",
+      "col_3": 3000,
+      "col_4": 3200,
+      "col_5": "Bạc",
+      "col_6": "Đang hoạt động",
+      "col_7": "2026-06-14",
+      "col_8": "KT-004"
+    },
+    {
+      "Bảng Kỹ thuật | Thành viên": "KT-005",
+      "col_1": "Hà Võ",
+      "col_2": "0900001005",
+      "col_3": 5000,
+      "col_4": 5800,
+      "col_5": "Vàng",
+      "col_6": "Đang hoạt động",
+      "col_7": "2026-04-09",
+      "col_8": "KT-005"
+    },
+    {
+      "Bảng Kỹ thuật | Thành viên": "KT-006",
+      "col_1": "Minh Đỗ",
+      "col_2": "0900001006",
+      "col_3": 12000,
+      "col_4": 12500,
+      "col_5": "Vàng",
+      "col_6": "Đang hoạt động",
+      "col_7": "2026-02-28",
+      "col_8": "KT-006"
+    },
+    {
+      "Bảng Kỹ thuật | Thành viên": "KT-007",
+      "col_1": "Ngọc Bùi",
+      "col_2": "0900001007",
+      "col_3": 4000,
+      "col_4": 4700,
+      "col_5": "Bạc",
+      "col_6": "Đang hoạt động",
+      "col_7": "2026-03-11",
+      "col_8": "KT-007"
+    },
+    {
+      "Bảng Kỹ thuật | Thành viên": "KT-008",
+      "col_1": "Phúc Hoàng",
+      "col_2": "0900001008",
+      "col_3": 0,
+      "col_4": 0,
+      "col_5": "Đồng",
+      "col_6": "Đang hoạt động",
+      "col_7": "2026-10-10",
+      "col_8": "KT-008"
+    }
+  ],
+  "KT_GiaoDich": [
+    {
+      "Bảng Kỹ thuật | Sổ giao dịch điểm": "Giao dịch trong mẫu đã được phản ánh vào điểm hiện tại ở KT_ThanhVien. Nạp như lịch sử; không cộng điểm lần nữa khi khởi tạo.",
+      "col_1": null,
+      "col_2": null,
+      "col_3": null,
+      "col_4": null,
+      "col_5": null,
+      "col_6": null,
+      "col_7": null
+    },
+    {
+      "Bảng Kỹ thuật | Sổ giao dịch điểm": "MaGiaoDich",
+      "col_1": "LoaiBienDong",
+      "col_2": "MaThanhVien",
+      "col_3": "ThoiGian",
+      "col_4": "GiaTriGiaoDich_VND",
+      "col_5": "ThayDoiDiem",
+      "col_6": "SoDuSauGiaoDich",
+      "col_7": "GhiChu"
+    },
+    {
+      "Bảng Kỹ thuật | Sổ giao dịch điểm": "TX-KT-001",
+      "col_1": "Cộng điểm",
+      "col_2": "KT-001",
+      "col_3": "2026-10-03 09:15",
+      "col_4": 500000,
+      "col_5": 50,
+      "col_6": 250,
+      "col_7": "Dữ liệu mẫu đã ghi nhận"
+    },
+    {
+      "Bảng Kỹ thuật | Sổ giao dịch điểm": "TX-KT-002",
+      "col_1": "Cộng điểm",
+      "col_2": "KT-002",
+      "col_3": "2026-10-04 11:40",
+      "col_4": 1500000,
+      "col_5": 150,
+      "col_6": 1450,
+      "col_7": "Dữ liệu mẫu đã ghi nhận"
+    },
+    {
+      "Bảng Kỹ thuật | Sổ giao dịch điểm": "TX-KT-003",
+      "col_1": "Đổi ưu đãi",
+      "col_2": "KT-003",
+      "col_3": "2026-10-05 14:05",
+      "col_4": 0,
+      "col_5": -200,
+      "col_6": 800,
+      "col_7": "Dữ liệu mẫu đã ghi nhận"
+    },
+    {
+      "Bảng Kỹ thuật | Sổ giao dịch điểm": "TX-KT-004",
+      "col_1": "Cộng điểm",
+      "col_2": "KT-004",
+      "col_3": "2026-10-06 18:20",
+      "col_4": 2000000,
+      "col_5": 200,
+      "col_6": 3200,
+      "col_7": "Dữ liệu mẫu đã ghi nhận"
+    },
+    {
+      "Bảng Kỹ thuật | Sổ giao dịch điểm": "TX-KT-005",
+      "col_1": "Cộng điểm",
+      "col_2": "KT-005",
+      "col_3": "2026-10-08 10:30",
+      "col_4": 8000000,
+      "col_5": 800,
+      "col_6": 5800,
+      "col_7": "Dữ liệu mẫu đã ghi nhận"
+    },
+    {
+      "Bảng Kỹ thuật | Sổ giao dịch điểm": "TX-KT-006",
+      "col_1": "Cộng điểm",
+      "col_2": "KT-006",
+      "col_3": "2026-10-09 16:10",
+      "col_4": 5000000,
+      "col_5": 500,
+      "col_6": 12500,
+      "col_7": "Dữ liệu mẫu đã ghi nhận"
+    },
+    {
+      "Bảng Kỹ thuật | Sổ giao dịch điểm": "TX-KT-007",
+      "col_1": "Cộng điểm",
+      "col_2": "KT-007",
+      "col_3": "2026-10-11 12:55",
+      "col_4": 7000000,
+      "col_5": 700,
+      "col_6": 4700,
+      "col_7": "Dữ liệu mẫu đã ghi nhận"
+    }
+  ],
+  "KT_UuDai": [
+    {
+      "Bảng Kỹ thuật | Danh mục ưu đãi": "Danh mục giả lập để đội thể hiện chức năng đổi điểm và ví ưu đãi.",
+      "col_1": null,
+      "col_2": null,
+      "col_3": null,
+      "col_4": null
+    },
+    {
+      "Bảng Kỹ thuật | Danh mục ưu đãi": "MaUuDai",
+      "col_1": "TenUuDai",
+      "col_2": "MoTa",
+      "col_3": "DiemCanDoi",
+      "col_4": "TrangThai"
+    },
+    {
+      "Bảng Kỹ thuật | Danh mục ưu đãi": "KT-VCH-01",
+      "col_1": "Voucher 20.000đ",
+      "col_2": "Giảm giá đơn hàng",
+      "col_3": "500",
+      "col_4": "Đang áp dụng"
+    },
+    {
+      "Bảng Kỹ thuật | Danh mục ưu đãi": "KT-VCH-02",
+      "col_1": "Voucher 50.000đ",
+      "col_2": "Giảm giá đơn hàng",
+      "col_3": "1100",
+      "col_4": "Đang áp dụng"
+    },
+    {
+      "Bảng Kỹ thuật | Danh mục ưu đãi": "KT-VCH-03",
+      "col_1": "Quà tặng đặc biệt",
+      "col_2": "Quà tặng mô phỏng",
+      "col_3": "2000",
+      "col_4": "Đang áp dụng"
+    }
+  ],
+  "KT_LichSuDiem": [
+    {
+      "Bảng Kỹ thuật | Lịch sử điểm": "Các dòng này khớp với mã giao dịch trong KT_GiaoDich và minh họa loại biến động, điểm, thời gian, số dư sau giao dịch.",
+      "col_1": null,
+      "col_2": null,
+      "col_3": null,
+      "col_4": null,
+      "col_5": null,
+      "col_6": null
+    },
+    {
+      "Bảng Kỹ thuật | Lịch sử điểm": "MaBienDong",
+      "col_1": "MaThanhVien",
+      "col_2": "LoaiBienDong",
+      "col_3": "ThayDoiDiem",
+      "col_4": "ThoiGian",
+      "col_5": "SoDuSauBienDong",
+      "col_6": "MaGiaoDich"
+    },
+    {
+      "Bảng Kỹ thuật | Lịch sử điểm": "KT-LS-001",
+      "col_1": "KT-001",
+      "col_2": "Cộng điểm",
+      "col_3": 50,
+      "col_4": "2026-10-03 09:15",
+      "col_5": 250,
+      "col_6": "TX-KT-001"
+    },
+    {
+      "Bảng Kỹ thuật | Lịch sử điểm": "KT-LS-002",
+      "col_1": "KT-002",
+      "col_2": "Cộng điểm",
+      "col_3": 150,
+      "col_4": "2026-10-04 11:40",
+      "col_5": 1450,
+      "col_6": "TX-KT-002"
+    },
+    {
+      "Bảng Kỹ thuật | Lịch sử điểm": "KT-LS-003",
+      "col_1": "KT-003",
+      "col_2": "Đổi điểm",
+      "col_3": -200,
+      "col_4": "2026-10-05 14:05",
+      "col_5": 800,
+      "col_6": "TX-KT-003"
+    },
+    {
+      "Bảng Kỹ thuật | Lịch sử điểm": "KT-LS-004",
+      "col_1": "KT-004",
+      "col_2": "Cộng điểm",
+      "col_3": 200,
+      "col_4": "2026-10-06 18:20",
+      "col_5": 3200,
+      "col_6": "TX-KT-004"
+    },
+    {
+      "Bảng Kỹ thuật | Lịch sử điểm": "KT-LS-005",
+      "col_1": "KT-005",
+      "col_2": "Cộng điểm",
+      "col_3": 800,
+      "col_4": "2026-10-08 10:30",
+      "col_5": 5800,
+      "col_6": "TX-KT-005"
+    },
+    {
+      "Bảng Kỹ thuật | Lịch sử điểm": "KT-LS-006",
+      "col_1": "KT-006",
+      "col_2": "Cộng điểm",
+      "col_3": 500,
+      "col_4": "2026-10-09 16:10",
+      "col_5": 12500,
+      "col_6": "TX-KT-006"
+    },
+    {
+      "Bảng Kỹ thuật | Lịch sử điểm": "KT-LS-007",
+      "col_1": "KT-007",
+      "col_2": "Cộng điểm",
+      "col_3": 700,
+      "col_4": "2026-10-11 12:55",
+      "col_5": 4700,
+      "col_6": "TX-KT-007"
+    }
+  ],
+  "KT_CaKiemTra": [
+    {
+      "Bảng Kỹ thuật | Ca kiểm tra gợi ý": "Kịch bản kiểm tra giúp giám khảo thao tác nhất quán. Tỉ lệ điểm ví dụ trong ca kiểm tra dùng để đối chiếu; đội công bố tỉ lệ đã chọn trong ứng dụng.",
+      "col_1": null,
+      "col_2": null,
+      "col_3": null,
+      "col_4": null,
+      "col_5": null,
+      "col_6": null
+    },
+    {
+      "Bảng Kỹ thuật | Ca kiểm tra gợi ý": "MaCa",
+      "col_1": "TinhHuong",
+      "col_2": "MaThanhVien",
+      "col_3": "MaGiaoDich_HoacUuDai",
+      "col_4": "GiaTriGiaoDich_VND",
+      "col_5": "DuLieuDauVao",
+      "col_6": "KetQuaMongDoi"
+    },
+    {
+      "Bảng Kỹ thuật | Ca kiểm tra gợi ý": "TC-KT-01",
+      "col_1": "Cộng điểm mới",
+      "col_2": "KT-008",
+      "col_3": "TX-NEW-001",
+      "col_4": 1000000,
+      "col_5": "10.000đ = 1 điểm",
+      "col_6": "Cộng 100 điểm một lần, số dư từ 0 lên 100"
+    },
+    {
+      "Bảng Kỹ thuật | Ca kiểm tra gợi ý": "TC-KT-02",
+      "col_1": "Nhập lại giao dịch",
+      "col_2": "KT-002",
+      "col_3": "TX-KT-002",
+      "col_4": 1500000,
+      "col_5": "Mã này đã có trong sổ",
+      "col_6": "Báo trùng, không cộng thêm 150 điểm"
+    },
+    {
+      "Bảng Kỹ thuật | Ca kiểm tra gợi ý": "TC-KT-03",
+      "col_1": "Đổi ưu đãi đủ điểm",
+      "col_2": "KT-005",
+      "col_3": "KT-VCH-01",
+      "col_4": null,
+      "col_5": "Đổi 500 điểm",
+      "col_6": "Tạo voucher trong ví và số dư từ 5800 còn 5300"
+    },
+    {
+      "Bảng Kỹ thuật | Ca kiểm tra gợi ý": "TC-KT-04",
+      "col_1": "Đổi ưu đãi thiếu điểm",
+      "col_2": "KT-008",
+      "col_3": "KT-VCH-01",
+      "col_4": null,
+      "col_5": "Đổi 500 điểm",
+      "col_6": "Từ chối đổi; số dư vẫn là 0"
+    },
+    {
+      "Bảng Kỹ thuật | Ca kiểm tra gợi ý": "TC-KT-05",
+      "col_1": "Quét QR chuẩn của BTC",
+      "col_2": "KT-004",
+      "col_3": "KT-004",
+      "col_4": null,
+      "col_5": "Payload QR: KT-004",
+      "col_6": "Đọc đúng KT-004 và mở hồ sơ Dũng Phạm. Phần quét là điểm thưởng; không bắt buộc."
+    }
+  ],
+  "KT_MaQR": [
+    {
+      "MÃ QR CHUẨN BẢNG KỸ THUẬT": "Mã QR kiểm tra thống nhất cho mọi đội: KT-004 (Dũng Phạm). QR chỉ mã hóa MaThanhVien; khi quét, ứng dụng tra hồ sơ bằng mã này.",
+      "col_1": null,
+      "col_2": null,
+      "col_3": null,
+      "col_4": null,
+      "col_5": null
+    },
+    {
+      "MÃ QR CHUẨN BẢNG KỸ THUẬT": "MaThanhVien",
+      "col_1": "HoTen_Mau",
+      "col_2": "DiemHienTai",
+      "col_3": "HangThamKhao",
+      "col_4": "PayloadQR",
+      "col_5": "MaQR_Anh"
+    },
+    {
+      "MÃ QR CHUẨN BẢNG KỸ THUẬT": "KT-004",
+      "col_1": "Dũng Phạm",
+      "col_2": 3200,
+      "col_3": "Bạc",
+      "col_4": "KT-004",
+      "col_5": null
+    },
+    {
+      "MÃ QR CHUẨN BẢNG KỸ THUẬT": "KT-001",
+      "col_1": "An Nguyễn",
+      "col_2": 250,
+      "col_3": "Đồng",
+      "col_4": "KT-001",
+      "col_5": null
+    },
+    {
+      "MÃ QR CHUẨN BẢNG KỸ THUẬT": "KT-002",
+      "col_1": "Bình Trần",
+      "col_2": 1450,
+      "col_3": "Bạc",
+      "col_4": "KT-002",
+      "col_5": null
+    },
+    {
+      "MÃ QR CHUẨN BẢNG KỸ THUẬT": "KT-003",
+      "col_1": "Chi Lê",
+      "col_2": 800,
+      "col_3": "Đồng",
+      "col_4": "KT-003",
+      "col_5": null
+    },
+    {
+      "MÃ QR CHUẨN BẢNG KỸ THUẬT": "KT-005",
+      "col_1": "Hà Võ",
+      "col_2": 5800,
+      "col_3": "Vàng",
+      "col_4": "KT-005",
+      "col_5": null
+    },
+    {
+      "MÃ QR CHUẨN BẢNG KỸ THUẬT": "KT-006",
+      "col_1": "Minh Đỗ",
+      "col_2": 12500,
+      "col_3": "Vàng",
+      "col_4": "KT-006",
+      "col_5": null
+    },
+    {
+      "MÃ QR CHUẨN BẢNG KỸ THUẬT": "KT-007",
+      "col_1": "Ngọc Bùi",
+      "col_2": 4700,
+      "col_3": "Bạc",
+      "col_4": "KT-007",
+      "col_5": null
+    },
+    {
+      "MÃ QR CHUẨN BẢNG KỸ THUẬT": "KT-008",
+      "col_1": "Phúc Hoàng",
+      "col_2": 0,
+      "col_3": "Đồng",
+      "col_4": "KT-008",
+      "col_5": null
+    }
+  ]
+}
