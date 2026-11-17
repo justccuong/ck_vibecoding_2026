@@ -56,6 +56,32 @@ export function App() {
   const [isScannerOpen, setIsScannerOpen] = useState(false);
   const [isDrinksModalOpen, setIsDrinksModalOpen] = useState(false);
 
+  // URL search params support for seamless demo & direct navigation
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const headParam = params.get('head');
+    if (headParam === 'cashier' || headParam === 'customer') {
+      setActiveHead(headParam);
+    }
+    const tabParam = params.get('tab');
+    if (tabParam === 'rewards' || tabParam === 'history' || tabParam === 'card') {
+      setActiveTab(tabParam as any);
+    }
+    const memberParam = params.get('member');
+    if (memberParam) {
+      setCurrentMemberId(memberParam);
+    }
+    if (params.get('rules') === 'true') {
+      setIsRulesOpen(true);
+    }
+    if (params.get('drinks') === 'true') {
+      setIsDrinksModalOpen(true);
+    }
+    if (params.get('register') === 'true') {
+      setIsRegisterOpen(true);
+    }
+  }, [setCurrentMemberId, setActiveTab]);
+
   // Scroll-to-top button visibility
   const [showScrollTop, setShowScrollTop] = useState(false);
 
